@@ -11,9 +11,10 @@ export default function Home() {
     const sendMessage = async () => {
 
         let name = document.querySelector("#nameField") as HTMLInputElement;
+        let email = document.querySelector("#emailField") as HTMLInputElement;
         let message = document.querySelector("#messageField") as HTMLInputElement;
 
-        if (name.value == "" || message.value == "") return setErrMsg("Error: Field empty");
+        if (name.value == "" || email.value == "" || message.value == "") return setErrMsg("Error: Field empty");
 
         let response = await axios.post("/api/sendMessage", {
             name: name.value,
@@ -27,6 +28,7 @@ export default function Home() {
         if (response.data.result === "DISCORD_API_ERROR") return setErrMsg("Error: Could not connect to Discord");
 
         name.value = ""
+        email.value = ""
         message.value = ""
         return setErrMsg("Your message was successfully sent!");
     }
@@ -61,21 +63,22 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>💬</title>
+                <title>💬 send.kilford.tech</title>
             </Head>
 
             <Background src="/background.jpg" />
 
             <Content initial="init" animate="load" variants={containerAnim}>
                 <Header variants={childAnim}>
-                    send.<CnradSpan>tebing</CnradSpan>.tech
+                    send.<CnradSpan>kilford</CnradSpan>.tech
                 </Header>
                 <Paragraph variants={childAnim}>
-                    💬 Send a message to me on Discord using webhooks
+                    💬 Contact me through webhooks! 💬
                 </Paragraph>
                 <Container variants={childAnim}>
-                    <NameField type="text" id="nameField" placeholder="Your name" maxLength={30} />
-                    <MessageField id="messageField" placeholder="Your message" maxLength={900} />
+                    <NameField type="text" id="nameField" placeholder="Name" maxLength={30} />
+                    <NameField type="text" id="emailField" placeholder="Email" maxLength={30} />
+                    <MessageField id="messageField" placeholder="Message" maxLength={900} />
                     <ErrorMessage style={{ color: errMsg == "Your message was successfully sent!" ? "#0051ff" : "#df4747" }}>{errMsg}</ErrorMessage>
                     <SendBtn onClick={sendMessage} whileTap={{ scale: 0.97 }} transition={{ duration: 0.1, ease: "easeInOut" }}>Send Message</SendBtn>
                 </Container>
