@@ -27,7 +27,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             "author": {
                 "name": data.name
             },
-            "description": data.message
+            "description": data.message,
             "footer": data.email
         }]
     }).then(response => {
