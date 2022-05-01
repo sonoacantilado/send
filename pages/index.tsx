@@ -73,7 +73,7 @@ export default function Home() {
 
             <Content initial="init" animate="load" variants={containerAnim}>
                 <Header variants={childAnim}>
-                    send.<CGlowSpan>kilford</GlowSpan>.tech
+                    send.<GlowSpan>kilford</GlowSpan>.tech
                 </Header>
                 <Paragraph variants={childAnim}>
                     💬 Contact me through webhooks! 💬
