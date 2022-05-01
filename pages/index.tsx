@@ -68,7 +68,7 @@ export default function Home() {
 
             <Content initial="init" animate="load" variants={containerAnim}>
                 <Header variants={childAnim}>
-                    send.<CnradSpan>cnrad</CnradSpan>.dev
+                    send.<CnradSpan>tebing</CnradSpan>.tech
                 </Header>
                 <Paragraph variants={childAnim}>
                     💬 Send a message to me on Discord using webhooks
