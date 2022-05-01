@@ -18,6 +18,7 @@ export default function Home() {
 
         let response = await axios.post("/api/sendMessage", {
             name: name.value,
+            email: email.value,
             message: message.value
         })
 
