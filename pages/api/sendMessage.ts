@@ -27,8 +27,18 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             "author": {
                 "name": data.name
             },
-            "description": data.message,
-            "footer": data.email
+            "fields": [
+              {
+                "name": "Email",
+                "value": data.email
+                "inline": true
+              },
+              {
+                "name": "Message,
+                "value": data.message,
+                "inline": true
+              }
+            ],
         }]
     }).then(response => {
         if(response.data.err) return res.status(500).json({ result: 'DISCORD_API_ERROR' })
