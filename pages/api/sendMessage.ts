@@ -30,7 +30,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             "fields": [
               {
                 "name": "Email",
-                "value": data.email
+                "value": data.email,
                 "inline": true
               },
               {
