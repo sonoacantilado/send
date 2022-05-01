@@ -34,7 +34,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
                 "inline": true
               },
               {
-                "name": "Message,
+                "name": "Message",
                 "value": data.message,
                 "inline": true
               }
