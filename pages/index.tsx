@@ -23,8 +23,10 @@ export default function Home() {
         })
 
         if (response.data.result === "MESSAGE_TOO_LONG") return setErrMsg("Error: Message length over 500 characters");
+        if (response.data.result === "EMAIL_TOO_LONG") return setErrMsg("Error: Email length over 30 characters");
         if (response.data.result === "NAME_TOO_LONG") return setErrMsg("Error: Name length over 30 characters");
         if (response.data.result === "MESSAGE_EMPTY") return setErrMsg("Error: Message empty");
+        if (response.data.result === "NEMAIL_EMPTY") return setErrMsg("Error: Email empty");
         if (response.data.result === "NAME_EMPTY") return setErrMsg("Error: Name empty");
         if (response.data.result === "DISCORD_API_ERROR") return setErrMsg("Error: Could not connect to Discord");
 
@@ -71,7 +73,7 @@ export default function Home() {
 
             <Content initial="init" animate="load" variants={containerAnim}>
                 <Header variants={childAnim}>
-                    send.<CnradSpan>kilford</CnradSpan>.tech
+                    send.<CGlowSpan>kilford</GlowSpan>.tech
                 </Header>
                 <Paragraph variants={childAnim}>
                     💬 Contact me through webhooks! 💬
@@ -100,7 +102,7 @@ const Background = styled.img`
     pointer-events: none;
 `
 
-const CnradSpan = styled.span`
+const GlowSpan = styled.span`
     color: #fff;
     filter: drop-shadow(0 0 3px #fff);
 `
@@ -156,6 +158,28 @@ const Container = styled(motion.div)`
 `
 
 const NameField = styled.input`
+    width: 100%;
+    height: auto;
+
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 1rem;
+
+    outline: none;
+    background: #ddd;
+    border-radius: 10px;
+    border: solid 2px #ddd;
+    padding: 0.5rem;
+    transition: all 0.15s ease-in-out;
+
+    &:focus {
+        border: solid 2px #0084ff;
+    }
+
+    margin-bottom: 1rem;
+`
+
+const EmailField = styled.input`
     width: 100%;
     height: auto;
 
